@@ -1,5 +1,8 @@
-import 
+
 package frc.robot.subsystems;
+import edu.wpi.first.*;
+import com.revrobotics.CANSparkMax.IdleMode;
+
 
 public class SwerveModule {
 
@@ -38,5 +41,9 @@ public class SwerveModule {
 
         turningPidController = new PIDController(ModuleConstants.kPTurning, 0, 0);
         
+    }
+
+    public SwerveModuleState getState() {
+        return new SwerveModuleState(getDriveVelocity(),)
     }
 }
