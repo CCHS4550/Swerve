@@ -16,13 +16,34 @@ import edu.wpi.first.math.util.Units;
  */
 public final class Constants {
     //MAKE SURE TO MAKE OUR NUMBERS
-    public static final double kWheelDiameterMeters = Units.inchesToMeters();
-    public static final double kDriveMotorGearRatio;
-    public static final double kTurningMotorGearRatio;
+    public static final double kDriveWheelDiameterInches = 4.0;
+    public static final double kWheelDiameterMeters = Units.inchesToMeters(kDriveWheelDiameterInches);
+    public static final double kDriveMotorGearRatio = 8.15;
+    public static final double kTurningMotorGearRatio = 12.9;
     public static final double kDriveEncoderRot2MMeter = kDriveMotorGearRatio * Math.PI * kWheelDiameterMeters;  
-    public static final double kTurningEncoderRot2Rad;
-    public static final double kDriveEncoderRPM2MeterPerSec;
-    public static final double kTurningEncoderRPM2RadPerSec;
-    public static final double kTurning;
+    public static final double kTurningEncoderRot2Rad = kTurningMotorGearRatio * Math.PI * 2.0;
+    public static final double kDriveEncoderRPM2MeterPerSec = kDriveEncoderRot2MMeter * 60.0;
+    public static final double kTurningEncoderRPM2RadPerSec= kTurningEncoderRot2Rad * 60.0;
+    public static final double kTurning = 0.5; // i dont know if this is right
+    
+
+    public static final double kTrackWidthInches = 24.0;
+    public static final double kEncoderCountsPerRevolution = 4096;
+    public static final double kEncoderCountsPerInch = (kEncoderCountsPerRevolution * kDriveWheelDiameterInches) / (kTrackWidthInches * Math.PI);
+    public static final double kMaxSpeedFeetPerSecond = 10.0;
+    public static final double kMaxAccelerationFeetPerSecondSquared = 10.0;
+    public static final double kMaxSpeedFeetPerSecondSquared = kMaxSpeedFeetPerSecond * kMaxSpeedFeetPerSecond;
+    public static final double kMaxAccelerationFeetPerSecondSquaredSquared = kMaxAccelerationFeetPerSecondSquared * kMaxAccelerationFeetPerSecondSquared;
+    public static final double kMaxSpeedFeetPerSecondCubed = kMaxSpeedFeetPerSecondSquared * kMaxSpeedFeetPerSecond;
+    public static final double kMaxAccelerationFeetPerSecondCubed = kMaxAccelerationFeetPerSecondSquared * kMaxAccelerationFeetPerSecondSquared;
+    public static final double kMaxSpeedFeetPerSecondQuartic = kMaxSpeedFeetPerSecondCubed * kMaxSpeedFeetPerSecond;
+    public static final double kMaxAccelerationFeetPerSecondQuartic = kMaxAccelerationFeetPerSecondCubed * kMaxAccelerationFeetPerSecondCubed;
+    public static final double kMaxSpeedFeetPerSecondQuintic = kMaxSpeedFeetPerSecondQuartic * kMaxSpeedFeetPerSecond;
+    public static final double kMaxAccelerationFeetPerSecondQuintic = kMaxAccelerationFeetPerSecondQuartic * kMaxAccelerationFeetPerSecondCubed;
+    public static final double kMaxSpeedFeetPerSecondSextic = kMaxSpeedFeetPerSecondQuintic * kMaxSpeedFeetPerSecond;
+    public static final double kMaxAccelerationFeetPerSecond = kMaxAccelerationFeetPerSecondQuintic * kMaxAccelerationFeetPerSecondCubed;
+
+
+    
 
 }
